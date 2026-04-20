@@ -1,0 +1,132 @@
+<svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" class="logo-animated">
+  <style>
+    /* Animación 1: Al cargar - rotación suave de bloques */
+    @keyframes rotate-block {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Animación 2: Al cargar - pulse en los bloques */
+    @keyframes pulse-block {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+      }
+    }
+
+    /* Animación 3: Al hover - expandir y rotar */
+    @keyframes expand-blocks {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+      50% {
+        transform: translate(2px, -2px) scale(1.1);
+      }
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+    }
+
+    /* Animación 4: Al hover - brillo en el logo */
+    @keyframes glow-effect {
+      0%, 100% {
+        filter: drop-shadow(0 0 0px rgba(2, 117, 179, 0.5));
+      }
+      50% {
+        filter: drop-shadow(0 0 6px rgba(2, 117, 179, 0.8));
+      }
+    }
+
+    /* Elemento principal del logo */
+    .logo-animated {
+      width: 200px;
+      height: 60px;
+    }
+
+    /* Bloques del logo - animación continua al cargar */
+    .block {
+      animation: pulse-block 2s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .block:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .block:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .block:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    /* Grupo de bloques - rotación continua */
+    .blocks-group {
+      animation: rotate-block 8s linear infinite;
+      transform-origin: 30px 30px;
+    }
+
+    /* Interactividad: hover activa animaciones adicionales */
+    .logo-animated:hover .blocks-group {
+      animation: 
+        rotate-block 4s linear infinite,
+        glow-effect 1.5s ease-in-out infinite;
+    }
+
+    .logo-animated:hover .block {
+      animation-name: expand-blocks;
+      animation-duration: 0.6s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+
+    /* Texto del logo */
+    .logo-text {
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      fill: #0275B3;
+      transition: fill 0.3s ease;
+    }
+
+    .logo-animated:hover .logo-text {
+      fill: #E0D23A;
+    }
+
+    /* Respeta preferencias de movimiento reducido */
+    @media (prefers-reduced-motion: reduce) {
+      .block,
+      .blocks-group,
+      .logo-animated:hover .blocks-group {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <!-- Bloques del logo con animación de rotación -->
+  <g class="blocks-group">
+    <!-- Bloque 1 (superior izquierda) -->
+    <rect class="block" x="10" y="10" width="12" height="12" fill="#0275B3" rx="2"/>
+    
+    <!-- Bloque 2 (superior derecha) -->
+    <rect class="block" x="25" y="10" width="12" height="12" fill="#E0D23A" rx="2"/>
+    
+    <!-- Bloque 3 (inferior) -->
+    <rect class="block" x="17" y="25" width="12" height="12" fill="#BEE0CE" rx="2"/>
+  </g>
+
+  <!-- Texto "Block Architect" -->
+  <text class="logo-text" x="50" y="32" font-size="20">Block</text>
+  <text class="logo-text" x="50" y="48" font-size="14" font-weight="normal" fill="#666">Architect</text>
+
+  <!-- Línea decorativa animada -->
+  <line x1="50" y1="52" x2="150" y2="52" stroke="#0275B3" stroke-width="1" opacity="0.3" style="transition: opacity 0.3s ease;"/>
+</svg>

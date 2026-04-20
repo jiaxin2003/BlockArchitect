@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Block Architect — Carrito de compra</title>
+  <meta name="description" content="Revisa los productos añadidos a tu carrito, modifica cantidades y consulta el precio total antes de comprar.">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="font-lato bg-white text-gray-800 flex flex-col min-h-screen">
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <header class="bg-secondary shadow-md fixed top-0 left-0 w-full z-50" role="banner">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+      <div class="flex items-center space-x-2">
+        <a href="index.html" aria-label="Volver a inicio">
+          <img src="Imagenes Pagina Web/LOGO-sin fondo250px.png" alt="Logotipo de Block Architect" class="h-10" loading="lazy">
+        </a>
+      </div>
+
+      <nav class="hidden md:flex space-x-6 text-sm font-semibold" aria-label="Navegación principal">
+        <a href="index.html" class="hover:text-primary focus:text-primary">Inicio</a>
+        <a href="search.html" class="hover:text-primary focus:text-primary">Descubrir</a>
+        <a href="info.html" class="hover:text-primary focus:text-primary">Ayuda</a>
+      </nav>
+
+      <div class="hidden md:flex items-center space-x-5">
+        <button type="button" class="theme-toggle hover:opacity-80 transition icon-button" aria-label="Cambiar tema"
+          aria-pressed="false" data-theme-toggle>
+          <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+          <span class="sr-only theme-toggle-label">Tema oscuro</span>
+        </button>
+        <button type="button" aria-label="Ver carrito de la compra" class="hover:opacity-80 transition icon-button" data-cart-toggle>
+          <img src="imagenes vectoriales/carrito compra positivo.svg" alt="" class="w-6 h-6 icon-svg" loading="lazy">
+        </button>
+      </div>
+
+      <div class="flex md:hidden items-center space-x-4">
+        <button type="button" class="theme-toggle hover:opacity-80 transition icon-button" aria-label="Cambiar tema"
+          aria-pressed="false" data-theme-toggle>
+          <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+          <span class="sr-only theme-toggle-label">Tema oscuro</span>
+        </button>
+        <button type="button" aria-label="Ver carrito de la compra" class="hover:opacity-80 transition icon-button" data-cart-toggle>
+          <img src="imagenes vectoriales/carrito compra positivo.svg" alt="" class="w-6 h-6 icon-svg" loading="lazy">
+        </button>
+        <button id="menu-btn" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu" class="hover:opacity-80 transition">
+          <img src="Imagenes Pagina Web/hamburguesa.png" alt="" class="w-7 h-7" loading="lazy">
+        </button>
+      </div>
+    </div>
+
+    <nav id="mobile-menu" class="hidden flex-col bg-secondary text-center border-t-2 border-primary md:hidden transition-all duration-300" aria-label="Navegación móvil" aria-hidden="true">
+      <a href="index.html" class="block py-2 border-b border-black/10">Inicio</a>
+      <a href="search.html" class="block py-2 border-b border-black/10">Descubrir</a>
+      <a href="info.html" class="block py-2 border-b border-black/10">Ayuda</a>
+    </nav>
+  </header>
+
+  <main id="main-content" tabindex="-1" class="pt-24 pb-12 px-4 flex-grow" role="main">
+    <section class="max-w-6xl mx-auto py-8" aria-labelledby="cart-page-title">
+      <div class="mb-8">
+        <h1 id="cart-page-title" class="text-3xl md:text-4xl font-bold text-primary mb-2">Tu carrito</h1>
+        <p class="text-gray-600">Revisa tus productos, ajusta cantidades y consulta el total antes de continuar.</p>
+      </div>
+
+      <div id="cart-page" class="cart-page-layout">
+        <div class="cart-page-card">
+          <div class="cart-page-header-row">
+            <span>Producto</span>
+            <span>Cantidad</span>
+            <span>Total</span>
+            <span>Acción</span>
+          </div>
+          <div id="cart-page-items"></div>
+          <div id="cart-empty-state" class="cart-empty-state" hidden>
+            <p>Tu carrito está vacío por ahora.</p>
+            <a href="search.html" class="cart-link-btn">Explorar productos</a>
+          </div>
+        </div>
+
+        <aside class="cart-summary-card">
+          <h2 class="text-2xl font-bold text-primary mb-4">Resumen del pedido</h2>
+          <p class="mb-3 text-gray-700">Productos seleccionados con persistencia local en tu navegador.</p>
+          <div class="cart-summary-total-box">
+            <span>Total final</span>
+            <strong id="cart-page-total">0,00 €</strong>
+          </div>
+          <a href="search.html" class="cart-link-btn">Seguir comprando</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-primary text-white px-6 py-10 mt-auto" role="contentinfo">
+    <div class="max-w-7xl mx-auto text-sm">
+      <div class="flex justify-between items-center border-t border-white/30 pt-4 text-xs opacity-80 flex-wrap mt-2">
+        <p class="text-left w-full md:w-auto mb-3 md:mb-0">© 2025 Block Architect. Todos los derechos reservados.</p>
+        <div class="flex space-x-4 justify-end w-full md:w-auto">
+          <img src="Imagenes Pagina Web/twitter-5568801232678d2d..svg" alt="Perfil de Block Architect en Twitter" class="w-5 h-5 hover:opacity-80" loading="lazy">
+          <img src="Imagenes Pagina Web/facebook-272324dea27d9f89..svg" alt="Perfil de Block Architect en Facebook" class="w-5 h-5 hover:opacity-80" loading="lazy">
+          <img src="Imagenes Pagina Web/instagram-5a9620c7f4368988..svg" alt="Perfil de Block Architect en Instagram" class="w-5 h-5 hover:opacity-80" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/menu.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/free-interactions.js" defer></script>
+</body>
+
+</html>

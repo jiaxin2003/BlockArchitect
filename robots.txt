@@ -1,0 +1,27 @@
+# robots.txt para Block Architect
+# https://www.blockarchitect.com/
+
+User-agent: *
+
+# Permitir indexación general
+Allow: /
+
+# No indexar la carpeta de imágenes
+Disallow: /Imagenes Pagina Web/
+Disallow: /imagenes vectoriales/
+
+# No indexar archivos PDF, DOC, DOCX, XLS, XLSX
+Disallow: /*.pdf$
+Disallow: /*.doc$
+Disallow: /*.docx$
+Disallow: /*.xls$
+Disallow: /*.xlsx$
+
+# No indexar archivos CSS y JS
+Disallow: /*.css$
+Disallow: /*.js$
+Disallow: /css/
+Disallow: /js/
+
+# Ubicación del sitemap
+Sitemap: https://www.blockarchitect.com/sitemap.xml

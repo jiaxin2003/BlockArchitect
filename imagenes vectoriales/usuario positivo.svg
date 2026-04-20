@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="50"
+   height="50"
+   viewBox="0 0 50 50"
+   sodipodi:docname="usuario positivo.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   inkscape:export-filename="usuario positivo.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     showguides="true"
+     inkscape:zoom="9.0235268"
+     inkscape:cx="9.3644095"
+     inkscape:cy="25.544336"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g1">
+    <path
+       id="path5"
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:1.99544"
+       d="M 48.99035,25.045639 A 23.889299,23.94471 0 0 1 25.101051,48.990351 23.889299,23.94471 0 0 1 1.2117509,25.045639 23.889299,23.94471 0 0 1 25.101051,1.1009296 23.889299,23.94471 0 0 1 48.99035,25.045639 Z" />
+    <path
+       id="path6"
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:1.99544"
+       d="m 35.049959,21.076526 a 9.4252792,9.572566 0 0 1 -9.425279,9.572567 9.4252792,9.572566 0 0 1 -9.42528,-9.572567 9.4252792,9.572566 0 0 1 9.42528,-9.572564 9.4252792,9.572566 0 0 1 9.425279,9.572564 z" />
+    <path
+       id="path7"
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:1.99544"
+       d="m 36.807315,46.005503 c 3.417454,-2.136552 3.307484,-1.846083 3.110142,-4.20476 -0.502459,-6.005528 -7.221304,-9.861067 -12.868197,-9.820028 -5.946242,0.04322 -10.270618,2.289211 -12.673492,5.129821 -1.977651,2.337923 -3.073208,7.093848 -1.815382,8.413259"
+       sodipodi:nodetypes="csssc" />
+  </g>
+</svg>

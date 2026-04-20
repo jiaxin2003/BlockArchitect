@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Block Architect — Sets de construcción y bloques creativos</title>
+  <meta name="description" content="Block Architect ofrece sets de construcción, bloques creativos y modelos para construir inspirados en películas y diseños originales. Compra online sets únicos.">
+  <meta name="keywords" content="bloques de construcción, sets creativos, Block Architect, bloques creativos, maquetas, construcción, juguetes educativos, sets de películas, comprar bloques">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Block Architect">
+  <link rel="canonical" href="https://www.blockarchitect.com/index.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Block Architect — Sets de construcción y bloques creativos">
+  <meta property="og:description" content="Descubre sets únicos de bloques creativos inspirados en películas y diseños originales. Compra online en Block Architect.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.blockarchitect.com/index.html">
+  <meta property="og:image" content="https://www.blockarchitect.com/Imagenes Pagina Web/LOGO-sin fondo250px.png">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Fuente Lato -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- CSS Propio -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Chart.js para gráficos interactivos -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0275B3',
+            /* amarillo con más contraste */
+            secondary: '#E0D23A',
+            background: '#BEE0CE',
+          },
+          fontFamily: {
+            lato: ['Lato', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+</head>
+
+<body class="font-lato text-gray-800 flex flex-col min-h-screen">
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- HEADER -->
+  <header class="bg-secondary shadow-md fixed top-0 left-0 w-full z-50" role="banner">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <a href="index.html">
+          <img src="Imagenes Pagina Web/LOGO-sin fondo250px.png" alt="Logotipo de Block Architect" class="h-10" loading="lazy">
+        </a>
+      </div>
+
+      <!-- Menú escritorio -->
+      <nav class="hidden md:flex space-x-6 text-sm font-semibold" aria-label="Navegación principal">
+        <a href="index.html" class="hover:text-primary focus:text-primary">Inicio</a>
+        <a href="search.html" class="hover:text-primary focus:text-primary">Descubrir</a>
+        <a href="info.html" class="hover:text-primary focus:text-primary">Ayuda</a>
+      </nav>
+
+      <!-- Buscador escritorio -->
+      <form action="search.html" method="get" role="search" aria-label="Buscar productos"
+        class="search-form hidden md:flex items-center">
+        <label for="search-input" class="sr-only">Buscar productos</label>
+        <div class="relative w-full">
+          <input id="search-input" name="q" type="search" placeholder="Buscar productos..."
+            class="search-input border border-gray-300 rounded-md px-1 py-1 focus:outline-none focus:ring-2 focus:ring-primary" />
+          <button type="submit" class="search-btn" aria-label="Buscar">
+            <img src="Imagenes Pagina Web/lupa.png" alt="" class="w-5 h-5" loading="lazy">
+          </button>
+        </div>
+      </form>
+
+      <!-- Iconos escritorio -->
+      <div class="hidden md:flex items-center space-x-5">
+        <!-- Nueva cuenta -->
+        <button type="button" aria-label="Acceder o crear cuenta" class="hover:opacity-80 transition icon-button">
+          <img src="imagenes vectoriales/usuario positivo.svg" alt="" class="w-6 h-6 icon-svg" loading="lazy">
+        </button>
+
+        <button type="button" class="theme-toggle hover:opacity-80 transition icon-button" aria-label="Cambiar tema"
+          aria-pressed="false" data-theme-toggle>
+          <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+          <span class="sr-only theme-toggle-label">Tema oscuro</span>
+        </button>
+
+        <!-- Carrito -->
+        <button type="button" aria-label="Ver carrito de la compra" class="hover:opacity-80 transition icon-button" data-cart-toggle>
+          <img src="imagenes vectoriales/carrito compra positivo.svg" alt="" class="w-6 h-6 icon-svg" loading="lazy">
+        </button>
+      </div>
+
+      <!-- Iconos móviles -->
+      <div class="flex md:hidden items-center space-x-4">
+        <!-- Cuenta -->
+        <button type="button" aria-label="Acceder o crear cuenta" class="hover:opacity-80 transition icon-button">
+          <img src="Imagenes Pagina Web/nueva-cuenta.png" alt="" class="w-6 h-6" loading="lazy">
+        </button>
+
+        <button type="button" class="theme-toggle hover:opacity-80 transition icon-button" aria-label="Cambiar tema"
+          aria-pressed="false" data-theme-toggle>
+          <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+          <span class="sr-only theme-toggle-label">Tema oscuro</span>
+        </button>
+
+        <!-- Carrito -->
+        <button type="button" aria-label="Ver carrito de la compra" class="hover:opacity-80 transition icon-button" data-cart-toggle>
+          <img src="imagenes vectoriales/carrito compra positivo.svg" alt="" class="w-6 h-6 icon-svg" loading="lazy">
+        </button>
+
+        <!-- Botón menú hamburguesa -->
+        <button id="menu-btn" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+          aria-controls="mobile-menu" class="hover:opacity-80 transition">
+          <img src="Imagenes Pagina Web/hamburguesa.png" alt="" class="w-7 h-7" loading="lazy">
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil -->
+    <nav id="mobile-menu"
+      class="hidden flex-col bg-secondary text-center border-t-2 border-primary md:hidden transition-all duration-300"
+      aria-label="Navegación móvil" aria-hidden="true">
+      <a href="index.html" class="block py-2 border-b border-black/10">Inicio</a>
+      <a href="search.html" class="block py-2 border-b border-black/10">Descubrir</a>
+      <a href="info.html" class="block py-2 border-b border-black/10">Ayuda</a>
+    </nav>
+
+    <!-- Buscador móvil -->
+    <form action="search.html" method="get" role="search" aria-label="Buscar productos en móvil"
+      class="md:hidden flex items-center justify-center bg-secondary border-t border-primary py-2 px-4">
+      <label for="search-input-mobile" class="sr-only">Buscar productos</label>
+      <div class="relative w-full max-w-sm">
+        <input id="search-input-mobile" name="q" type="search" placeholder="Buscar productos..."
+          class="w-full border border-gray-300 rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-primary" />
+        <button type="submit" class="search-btn" aria-label="Buscar">
+          <img src="Imagenes Pagina Web/lupa.png" alt="" class="w-5 h-5" loading="lazy">
+        </button>
+      </div>
+    </form>
+  </header>
+
+  <!-- MAIN -->
+  <main id="main-content" tabindex="-1" class="pt-0 flex-grow" role="main">
+
+
+    <!-- HERO LANDING -->
+    <section class="hero-landing relative w-full min-h-[350px] md:min-h-[480px] flex items-center justify-end overflow-hidden" style="margin-top:var(--header-height); margin-bottom:0;">
+      <img src="imagenes vectoriales/imagen hero modificada.png" alt="Construcción creativa" class="hero-img absolute inset-0 w-full h-full object-cover object-center z-0" loading="eager" fetchpriority="high" />
+      <div class="hero-fade absolute inset-0 z-10"></div>
+      <div class="relative z-20 flex flex-col items-end md:items-end w-full max-w-6xl mx-auto justify-center px-6 py-12">
+        <div class="flex-1 flex flex-col items-end justify-center text-white md:pr-16" style="min-width:220px;max-width:420px;">
+          <h1 class="text-2xl md:text-4xl font-bold mb-4 drop-shadow-lg text-right">¡Imagina, construye y crea!</h1>
+          <p class="mb-6 text-base md:text-lg max-w-md drop-shadow text-right">Descubre sets únicos para dar vida a tus ideas. Inspírate y construye sin límites.</p>
+          <a href="info.html#contacto" class="cta-btn bg-primary hover:bg-secondary text-white hover:text-black font-bold py-2 px-6 rounded-full shadow-lg transition-colors duration-200">Contáctanos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANNER PUBLICITARIO ANIMADO -->
+    <section class="banner-destacado py-8 px-4 flex justify-center bg-gray-50" aria-labelledby="banner-title">
+      <div class="max-w-5xl w-full">
+        <h2 id="banner-title" class="sr-only">Promoción destacada</h2>
+        <iframe 
+          src="Animaciones/animaciones/animaciones-embed.html" 
+          class="w-full border-0 rounded-lg shadow-lg" 
+          title="Banner publicitario animado de Block Architect"
+          scrolling="no"
+          style="overflow: hidden; min-height: 300px; height: 300px; display: block;"
+          loading="lazy">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Sección Novedades pegada al hero -->
+    <section class="novedades bg-[#BEE0CE] px-6 py-12 mt-0 flex justify-center border-t border-black/10" style="margin-top:0;"
+      aria-labelledby="novedades-title">
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-6 max-w-5xl w-full">
+
+        <!-- Imagen principal -->
+        <div class="flex-1 overflow-hidden rounded-xl shadow-lg max-w-3xl scroll-animate-right">
+          <a href="product.html">
+            <img src="Imagenes Pagina Web/productos/medium/WILLYWONKA.png" alt="Set de construcción Willy Wonka con bloques creativos" loading="lazy"
+              class="w-full h-72 md:h-80 object-cover rounded-xl hover:scale-105 transition-transform duration-300 float">
+          </a>
+          
+        </div>
+
+        <!-- Miniaturas -->
+        <div class="flex flex-col justify-center items-center gap-4 md:ml-6">
+          <a href="product.html">
+            <img src="Imagenes Pagina Web/productos/small/WILLYWONKA.png" loading="lazy"
+              alt="Miniatura del set Willy Wonka y la Fábrica de Chocolate, vista frontal"
+              class="w-20 h-20 object-cover rounded-lg bg-gray-200 shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer">
+          </a>
+          <a href="product.html">
+            <img src="Imagenes Pagina Web/productos/small/WILLYWONKA.png" loading="lazy"
+              alt="Miniatura del set Willy Wonka y la Fábrica de Chocolate, detalle lateral"
+              class="w-20 h-20 object-cover rounded-lg bg-gray-200 shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer">
+          </a>
+          <a href="product.html">
+            <img src="Imagenes Pagina Web/productos/small/WILLYWONKA.png" loading="lazy"
+              alt="Miniatura del set Willy Wonka y la Fábrica de Chocolate, vista superior"
+              class="w-20 h-20 object-cover rounded-lg bg-gray-200 shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer">
+          </a>
+        </div>
+
+        <!-- Texto y precio -->
+        <div class="flex flex-col justify-between text-left md:w-64 mt-6 md:mt-0 scroll-animate-left">
+          <div>
+            <h2 id="novedades-title" class="text-lg font-semibold text-primary mb-2">Novedades</h2>
+            <p class="text-base font-medium">Willy Wonka y la Fábrica de Chocolate</p>
+          </div>
+
+          <div class="flex items-center justify-between mt-6" aria-label="Precio del set Willy Wonka">
+            <p class="text-base font-bold text-gray-900">150€</p>
+            <button type="button" aria-label="Añadir set Willy Wonka al carrito" class="btn-pulse icon-button"
+              data-notify-message="El set Willy Wonka se ha añadido al carrito." data-notify-type="success"
+              data-cart-add data-cart-id="willy-wonka" data-cart-name="Willy Wonka y la Fábrica de Chocolate"
+              data-cart-price="150" data-cart-image="Imagenes Pagina Web/productos/small/WILLYWONKA.png">
+              <img src="imagenes vectoriales/carrito compra positivo.svg" alt="" class="w-6 h-6 icon-svg" loading="lazy">
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Encuentra el set perfecto -->
+    <section class="px-4 py-10 text-center scroll-animate" aria-labelledby="sets-perfectos-title">
+      <h2 id="sets-perfectos-title" class="text-xl font-semibold mb-6">Encuentra el set perfecto</h2>
+
+      <div class="flex items-center justify-center">
+        <button id="carousel-prev" type="button" class="text-2xl font-bold hover:text-primary mr-4"
+          aria-label="Ver sets anteriores">❮</button>
+
+        <div class="carousel flex overflow-x-auto gap-6 snap-x snap-mandatory scroll-smooth pb-4 max-w-6xl" role="list"
+          aria-label="Listado de sets recomendados">
+          <!-- Tarjetas del carrusel -->
+          <div class="carousel-item flex-shrink-0 snap-center bg-white rounded-xl shadow-lg w-72 p-5" role="listitem">
+            <a href="product.html">
+              <img src="Imagenes Pagina Web/productos/small/Krusty burguwr.png" loading="lazy"
+                alt="Set de bloques inspirado en Krusty Burger montado sobre base"
+                class="w-40 h-40 object-contain mx-auto rounded-lg hover:scale-105 transition-transform duration-300">
+            </a>
+
+            <p class="mt-4 text-lg font-semibold">Set de Bloques Krusty Burger</p>
+            <p class="text-primary font-bold text-lg">35€</p>
+          </div>
+
+          <div class="carousel-item flex-shrink-0 snap-center bg-white rounded-xl shadow-lg w-72 p-5" role="listitem">
+            <a href="product.html">
+              <img src="Imagenes Pagina Web/productos/small/Krusty burguwr.png" loading="lazy"
+                alt="Set de bloques Krusty Burger con detalles del interior"
+                class="w-40 h-40 object-contain mx-auto rounded-lg hover:scale-105 transition-transform duration-300">
+            </a>
+            <p class="mt-4 text-lg font-semibold">Set de Bloques Krusty Burger Edición Especial</p>
+            <p class="text-primary font-bold text-lg">35€</p>
+          </div>
+
+          <div class="carousel-item flex-shrink-0 snap-center bg-white rounded-xl shadow-lg w-72 p-5" role="listitem">
+            <a href="product.html">
+              <img src="Imagenes Pagina Web/productos/small/Krusty burguwr.png" loading="lazy"
+                alt="Set de bloques Krusty Burger con minifiguras incluidas"
+                class="w-40 h-40 object-contain mx-auto rounded-lg hover:scale-105 transition-transform duration-300">
+            </a>
+            <p class="mt-4 text-lg font-semibold">Set de Bloques Krusty Burger con minifiguras</p>
+            <p class="text-primary font-bold text-lg">35€</p>
+          </div>
+        </div>
+
+        <button id="carousel-next" type="button" class="text-2xl font-bold hover:text-primary ml-4"
+          aria-label="Ver siguientes sets">❯</button>
+      </div>
+    </section>
+
+    <!-- Lo más construido -->
+    <section class="px-4 py-10 bg-white scroll-animate" aria-labelledby="lo-mas-construido-title">
+      <h2 id="lo-mas-construido-title" class="text-xl font-semibold text-center mb-6 text-primary">Lo más Construido
+      </h2>
+
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+
+        <!-- Imagen principal -->
+        <a href="product.html" class="overflow-hidden rounded-xl shadow-lg flex justify-center items-center bg-gray-100 h-[400px] shimmer-border" aria-label="Ver detalle del modelo principal Star Wars">
+          <img src="Imagenes Pagina Web/productos/medium/starwars.png" loading="lazy"
+            alt="Modelo principal de Star Wars construido con bloques Block Architect"
+            class="w-full h-full object-cover rounded-xl transition-transform duration-500 hover:scale-105 shimmer-effect">
+        </a>
+
+        <!-- Galería secundaria -->
+        <div class="hidden md:grid grid-cols-2 grid-rows-3 gap-4 h-[400px]" role="list"
+          aria-label="Galería de sets más construidos">
+          <a href="product.html" class="overflow-hidden rounded-lg shadow-md bg-gray-100" role="listitem"
+            aria-label="Ver detalle del set Willy Wonka más construido">
+            <img src="Imagenes Pagina Web/productos/small/WILLYWONKA.png" loading="lazy"
+              alt="Set de Willy Wonka, uno de los modelos más construidos por la comunidad"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </a>
+
+          <a href="product.html" class="overflow-hidden rounded-lg shadow-md bg-gray-100" role="listitem"
+            aria-label="Ver detalle del set Krusty Burger más construido">
+            <img src="Imagenes Pagina Web/productos/small/Krusty burguwr.png" loading="lazy"
+              alt="Set Krusty Burger, muy popular entre los usuarios de Block Architect"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </a>
+
+          <a href="product.html" class="overflow-hidden rounded-lg shadow-md bg-gray-100" role="listitem"
+            aria-label="Ver detalle del set Star Wars más construido">
+            <img src="Imagenes Pagina Web/productos/small/starwars.png" alt="Set Star Wars con nave espacial y base construida" loading="lazy"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </a>
+
+          <a href="product.html" class="overflow-hidden rounded-lg shadow-md bg-gray-100" role="listitem"
+            aria-label="Ver detalle de otro set Willy Wonka muy construido">
+            <img src="Imagenes Pagina Web/productos/small/WILLYWONKA.png" alt="Otro modelo alternativo del set Willy Wonka montado" loading="lazy"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </a>
+
+          <a href="product.html" class="overflow-hidden rounded-lg shadow-md bg-gray-100" role="listitem"
+            aria-label="Ver detalle de otro set Krusty Burger muy construido">
+            <img src="Imagenes Pagina Web/productos/small/Krusty burguwr.png" alt="Variación del set Krusty Burger con otros colores" loading="lazy"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </a>
+
+          <a href="product.html" class="overflow-hidden rounded-lg shadow-md bg-gray-100" role="listitem"
+            aria-label="Ver detalle de otro set Star Wars muy construido">
+            <img src="Imagenes Pagina Web/productos/small/starwars.png" alt="Otro diseño del set Star Wars montado con bloques" loading="lazy"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN ESTADÍSTICAS CON CHART.JS -->
+    <section class="px-4 py-12 bg-gradient-to-r from-gray-50 to-white scroll-animate" aria-labelledby="stats-title">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-8">
+          <h2 id="stats-title" class="text-3xl font-bold text-primary mb-2">Estadísticas de Popularidad 📊</h2>
+          <p class="text-gray-600">Descubre cuáles son los sets más vendidos y populares en la comunidad Block Architect</p>
+        </div>
+
+        <!-- Botones interactivos para cambiar gráficos -->
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+          <button class="chart-btn active px-6 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:shadow-lg" data-chart="sales">
+            📈 Ventas por Set
+          </button>
+          <button class="chart-btn px-6 py-2 bg-secondary text-gray-900 rounded-lg font-semibold transition-all hover:shadow-lg" data-chart="rating">
+            ⭐ Valoración de Usuarios
+          </button>
+          <button class="chart-btn px-6 py-2 bg-background text-gray-900 rounded-lg font-semibold transition-all hover:shadow-lg" data-chart="inventory">
+            📦 Inventario Disponible
+          </button>
+        </div>
+
+        <!-- Contenedor del gráfico -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-4">
+          <div class="relative h-80">
+            <canvas id="statsChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Información interactiva -->
+        <div class="bg-blue-50 border-l-4 border-primary p-4 rounded-r-lg">
+          <p class="text-sm text-gray-700">
+            <strong>💡 Tip:</strong> Haz clic en los botones superiores para cambiar entre diferentes vistas. Puedes hacer hover sobre las barras del gráfico para ver más información.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 py-12 bg-white scroll-animate" aria-labelledby="tabs-title">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-8">
+          <h2 id="tabs-title" class="text-3xl font-bold text-primary mb-2">Información útil en pestañas</h2>
+          <p class="text-gray-600">Consulta rápidamente qué tipo de set encaja mejor contigo.</p>
+        </div>
+
+        <div class="tabs-container">
+          <div class="tabs-nav" role="tablist" aria-label="Información útil de compra">
+            <button class="tab-btn active" type="button" role="tab" id="tab-coleccion" aria-selected="true" aria-controls="panel-coleccion">Colección</button>
+            <button class="tab-btn" type="button" role="tab" id="tab-edades" aria-selected="false" aria-controls="panel-edades" tabindex="-1">Edades</button>
+            <button class="tab-btn" type="button" role="tab" id="tab-envio" aria-selected="false" aria-controls="panel-envio" tabindex="-1">Envío</button>
+          </div>
+
+          <div id="panel-coleccion" class="tab-panel active" role="tabpanel" aria-labelledby="tab-coleccion">
+            <h3 class="text-xl font-bold text-primary mb-3">Sets para coleccionistas</h3>
+            <p>Descubre ediciones inspiradas en cine, arquitectura y cultura pop con más detalle y acabados especiales.</p>
+          </div>
+
+          <div id="panel-edades" class="tab-panel" role="tabpanel" aria-labelledby="tab-edades" hidden>
+            <h3 class="text-xl font-bold text-primary mb-3">Sets según la edad</h3>
+            <p>Disponemos de opciones para principiantes, usuarios intermedios y amantes de los montajes complejos.</p>
+          </div>
+
+          <div id="panel-envio" class="tab-panel" role="tabpanel" aria-labelledby="tab-envio" hidden>
+            <h3 class="text-xl font-bold text-primary mb-3">Envío y atención</h3>
+            <p>Recibe asistencia personalizada y consulta el estado de tu pedido con nuestro equipo de soporte.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Volver arriba" aria-hidden="true">↑</button>
+
+  <!-- FOOTER -->
+  <footer class="bg-primary text-white px-6 py-10 mt-auto" role="contentinfo">
+    <div class="max-w-7xl mx-auto text-sm">
+
+      <!-- ====== VISTA ESCRITORIO ====== -->
+      <div class="hidden md:flex flex-col md:flex-row items-start md:space-x-6 mb-8">
+        <div class="flex flex-col items-start space-y-2 mb-6 md:mb-0">
+          <img src="Imagenes Pagina Web/LOGO-sin fondo250px.png" alt="Logotipo de Block Architect" loading="lazy"
+            class="object-contain">
+          <div class="flex items-center space-x-2">
+            <img src="Imagenes Pagina Web/puntero.png" alt="" class="w-4 h-4" loading="lazy">
+            <span class="font-semibold">Contáctanos</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+          <div>
+            <h3 class="font-bold mb-2 text-secondary">Quiénes Somos</h3>
+            <p>En Block Architect creemos en el poder de la imaginación y el diseño. Nuestra misión es inspirar a niños,
+              jóvenes y adultos a construir sus propias ideas a través de bloques creativos y sets de calidad.</p>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2 text-secondary">Atención al Cliente</h3>
+            <p>En Block Architect nos importa tu experiencia. Puedes escribirnos a soporte@blockarchitect.com o
+              llamarnos
+              al +34 600 123 456.</p>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2 text-secondary">Más información</h3>
+            <ul class="space-y-1">
+              <li><a href="#" class="hover:underline">Lo más Construido</a></li>
+              <li><a href="#" class="hover:underline">Novedades</a></li>
+              <li><a href="search.html" class="hover:underline">Descubrir</a></li>
+              <li><a href="info.html" class="hover:underline">Sobre nosotros</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== VISTA MÓVIL (DESPLEGABLE CON JS) ====== -->
+      <div class="md:hidden flex flex-col space-y-3">
+        <!-- Logo y Contáctanos SOLO EN MÓVIL -->
+        <div class="flex flex-col items-start space-y-2 mb-2">
+          <img src="Imagenes Pagina Web/LOGO-sin fondo250px.png" alt="Logotipo de Block Architect" loading="lazy"
+            class="object-contain w-40">
+          <div class="flex items-center space-x-2">
+            <img src="Imagenes Pagina Web/puntero.png" alt="" class="w-4 h-4" loading="lazy">
+            <span class="font-semibold">Contáctanos</span>
+          </div>
+        </div>
+
+        <div class="footer-item bg-primary/90 rounded-lg p-3">
+          <button class="footer-toggle w-full flex justify-between items-center font-semibold text-secondary text-left"
+            type="button" aria-expanded="false" aria-controls="footer-quienes" id="footer-quienes-btn">
+            <span>Quiénes Somos</span>
+            <span class="arrow transition-transform duration-300" aria-hidden="true">▼</span>
+          </button>
+          <div id="footer-quienes"
+            class="footer-content overflow-hidden max-h-0 transition-all duration-500 text-sm text-white/90"
+            role="region" aria-labelledby="footer-quienes-btn" aria-hidden="true">
+            <p class="pt-2">
+              En Block Architect creemos en el poder de la imaginación y el diseño. Nuestra misión es inspirar a niños,
+              jóvenes y adultos a construir sus propias ideas a través de bloques creativos y sets de calidad.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-item bg-primary/90 rounded-lg p-3">
+          <button class="footer-toggle w-full flex justify-between items-center font-semibold text-secondary text-left"
+            type="button" aria-expanded="false" aria-controls="footer-cliente" id="footer-cliente-btn">
+            <span>Atención al Cliente</span>
+            <span class="arrow transition-transform duration-300" aria-hidden="true">▼</span>
+          </button>
+          <div id="footer-cliente"
+            class="footer-content overflow-hidden max-h-0 transition-all duration-500 text-sm text-white/90"
+            role="region" aria-labelledby="footer-cliente-btn" aria-hidden="true">
+            <p class="pt-2">
+              En Block Architect nos importa tu experiencia. Puedes escribirnos a
+              <strong>soporte@blockarchitect.com</strong> o llamarnos al +34 600 123 456.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-item bg-primary/90 rounded-lg p-3">
+          <button class="footer-toggle w-full flex justify-between items-center font-semibold text-secondary text-left"
+            type="button" aria-expanded="false" aria-controls="footer-mas-info" id="footer-mas-info-btn">
+            <span>Más información</span>
+            <span class="arrow transition-transform duration-300" aria-hidden="true">▼</span>
+          </button>
+          <div id="footer-mas-info"
+            class="footer-content overflow-hidden max-h-0 transition-all duration-500 text-sm text-white/90"
+            role="region" aria-labelledby="footer-mas-info-btn" aria-hidden="true">
+            <ul class="pt-2 space-y-1">
+              <li><a href="#" class="hover:underline">Lo más Construido</a></li>
+              <li><a href="#" class="hover:underline">Novedades</a></li>
+              <li><a href="search.html" class="hover:underline">Descubrir</a></li>
+              <li><a href="info.html" class="hover:underline">Sobre nosotros</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- COPYRIGHT -->
+      <div class="flex justify-between items-center border-t border-white/30 pt-4 text-xs opacity-80 flex-wrap mt-8">
+        <p class="text-left w-full md:w-auto mb-3 md:mb-0">
+          © 2025 Block Architect. Todos los derechos reservados.
+        </p>
+        <div class="flex space-x-4 justify-end w-full md:w-auto">
+          <img src="Imagenes Pagina Web/twitter-5568801232678d2d..svg" alt="Perfil de Block Architect en Twitter"
+            class="w-5 h-5 hover:opacity-80" loading="lazy">
+          <img src="Imagenes Pagina Web/facebook-272324dea27d9f89..svg" alt="Perfil de Block Architect en Facebook"
+            class="w-5 h-5 hover:opacity-80" loading="lazy">
+          <img src="Imagenes Pagina Web/instagram-5a9620c7f4368988..svg" alt="Perfil de Block Architect en Instagram"
+            class="w-5 h-5 hover:opacity-80" loading="lazy">
+          <img src="Imagenes Pagina Web/youtube-15755d90b590e150..svg" alt="Canal de YouTube de Block Architect"
+            class="w-5 h-5 hover:opacity-80" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/menu.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/free-interactions.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/chartjs-stats.js" defer></script>
+  </body>
+
+</html>

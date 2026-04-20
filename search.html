@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Block Architect — Descubrir sets de construcción y bloques creativos</title>
+    <meta name="description" content="Explora y descubre el catálogo completo de sets de construcción de Block Architect. Sets populares, recomendados y novedades en bloques creativos.">
+    <meta name="keywords" content="buscar sets, catálogo bloques, Block Architect, sets populares, novedades bloques, descubrir bloques de construcción, tienda bloques creativos">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Block Architect">
+    <link rel="canonical" href="https://www.blockarchitect.com/search.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Descubrir sets de construcción — Block Architect">
+    <meta property="og:description" content="Explora el catálogo completo de sets de construcción y bloques creativos de Block Architect.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.blockarchitect.com/search.html">
+    <meta property="og:image" content="https://www.blockarchitect.com/Imagenes Pagina Web/LOGO-sin fondo250px.png">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Fuente Lato -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0275B3',
+                        secondary: '#FAED52',  /* amarillo */
+                        background: '#BEE0CE',
+                    },
+                    fontFamily: {
+                        lato: ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- CSS Propio -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="font-lato bg-white text-gray-800 flex flex-col min-h-screen">
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- HEADER -->
+    <header class="bg-secondary shadow-md fixed top-0 left-0 w-full z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+
+            <!-- Logo -->
+            <div class="flex items-center space-x-2">
+                <a href="index.html" aria-label="Volver a inicio">
+                    <img src="Imagenes Pagina Web/LOGO-sin fondo250px.png" alt="logotipo" class="h-10" loading="lazy">
+                </a>
+            </div>
+
+            <!-- Menú escritorio -->
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold">
+                <a href="index.html" class="hover:text-primary focus:text-primary">Inicio</a>
+                <a href="search.html" class="hover:text-primary focus:text-primary">Descubrir</a>
+                <a href="info.html" class="hover:text-primary focus:text-primary">Ayuda</a>
+            </nav>
+
+            <!-- Buscador escritorio -->
+            <form action="search.html" method="get" role="search" aria-label="Buscar productos"
+                class="search-form hidden md:flex items-center">
+                <label for="search-input" class="sr-only">Buscar productos</label>
+                <div class="relative w-full">
+                    <input id="search-input" name="q" type="search" placeholder="Buscar productos..."
+                        class="search-input border border-gray-300 rounded-md px-1 py-1 focus:outline-none focus:ring-2 focus:ring-primary" />
+                    <button class="search-btn">
+                        <img src="Imagenes Pagina Web/lupa.png" alt="Buscar" class="w-5 h-5" loading="lazy">
+                    </button>
+                </div>
+            </form>
+
+            <!-- Iconos escritorio -->
+            <div class="hidden md:flex items-center space-x-5">
+                <button aria-label="Cuenta nueva" class="hover:opacity-80 transition">
+                    <img src="Imagenes Pagina Web/nueva-cuenta.png" alt="Cuenta" class="w-6 h-6" loading="lazy">
+                </button>
+                <button type="button" class="theme-toggle hover:opacity-80 transition" aria-label="Cambiar tema"
+                    aria-pressed="false" data-theme-toggle>
+                    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+                    <span class="sr-only theme-toggle-label">Tema oscuro</span>
+                </button>
+                <button type="button" aria-label="Carrito" class="hover:opacity-80 transition" data-cart-toggle>
+                    <img src="Imagenes Pagina Web/carrito-de-compras.png" alt="Carrito" class="w-6 h-6" loading="lazy">
+                </button>
+            </div>
+
+            <!-- Iconos móviles -->
+            <div class="flex md:hidden items-center space-x-4">
+                <button aria-label="Cuenta nueva" class="hover:opacity-80 transition">
+                    <img src="Imagenes Pagina Web/nueva-cuenta.png" alt="Cuenta" class="w-6 h-6" loading="lazy">
+                </button>
+                <button type="button" class="theme-toggle hover:opacity-80 transition" aria-label="Cambiar tema"
+                    aria-pressed="false" data-theme-toggle>
+                    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+                    <span class="sr-only theme-toggle-label">Tema oscuro</span>
+                </button>
+                <button type="button" aria-label="Carrito" class="hover:opacity-80 transition" data-cart-toggle>
+                    <img src="Imagenes Pagina Web/carrito-de-compras.png" alt="Carrito" class="w-6 h-6" loading="lazy">
+                </button>
+                <button id="menu-btn" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+                    aria-controls="mobile-menu" class="hover:opacity-80 transition">
+                    <img src="Imagenes Pagina Web/hamburguesa.png" alt="Menú" class="w-7 h-7" loading="lazy">
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú móvil -->
+        <nav id="mobile-menu"
+            class="hidden flex-col bg-secondary text-center border-t-2 border-primary md:hidden transition-all duration-300"
+            aria-label="Navegación móvil" aria-hidden="true">
+            <a href="index.html" class="block py-2 border-b border-black/10">Inicio</a>
+            <a href="search.html" class="block py-2 border-b border-black/10">Descubrir</a>
+            <a href="info.html" class="block py-2 border-b border-black/10">Ayuda</a>
+        </nav>
+        <!-- Buscador móvil -->
+        <form action="search.html" method="get" role="search" aria-label="Buscar productos móviles"
+            class="md:hidden flex items-center justify-center bg-secondary border-t border-primary py-2 px-4">
+            <label for="search-input-mobile" class="sr-only">Buscar productos</label>
+            <div class="relative w-full max-w-sm">
+                <input id="search-input-mobile" name="q" type="search" placeholder="Buscar productos..."
+                    class="w-full border border-gray-300 rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-primary" />
+                <button class="search-btn">
+                    <img src="Imagenes Pagina Web/lupa.png" alt="Buscar" class="w-5 h-5" loading="lazy">
+                </button>
+            </div>
+        </form>
+    </header>
+    <!-- MAIN -->
+    <main id="main-content" tabindex="-1" class="pt-24 max-w-6xl mx-auto px-4 flex-grow w-full" role="main">
+        <section class="px-4 py-8">
+            <h2 class="text-xl font-semibold text-center mb-6">Productos</h2>
+
+            <div class="search-results"></div>
+
+            <!-- Carrusel 1 -->
+            <section class="py-10 text-center w-full block">
+                <h2 class="text-xl font-semibold mb-6">Sets Populares</h2>
+
+                <div class="flex flex-col items-center w-full">
+                    <div class="flex items-center justify-center w-full max-w-6xl">
+                        <!-- Botón anterior -->
+                        <button id="carousel-prev"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-primary/20 text-primary text-4xl font-bold hover:bg-primary hover:text-white transition mr-4"
+                            aria-label="Anterior">❮</button>
+
+                        <div class="carousel w-full">
+                            <div class="carousel-item">
+                                <a href="product.html">
+                                    <img src="Imagenes Pagina Web/productos/small/Krusty burguwr.png" alt="Set Krusty Burguer" loading="lazy"
+                                        class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                                </a>
+                                <p class="mt-2">Krusty Burguer</p>
+                                <p class="font-semibold text-primary">45€</p>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="product.html">
+                                    <img src="Imagenes Pagina Web/productos/small/WILLYWONKA.png" alt="Set Willy Wonka" loading="lazy"
+                                        class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                                </a>
+                                <p class="mt-2">Set Willy Wonka</p>
+                                <p class="font-semibold text-primary">150€</p>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="product.html">
+                                    <img src="Imagenes Pagina Web/productos/small/starwars.png" alt="Set Star Wars" loading="lazy"
+                                        class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                                </a>
+                                <p class="mt-2">Set Star Wars</p>
+                                <p class="font-semibold text-primary">120€</p>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="product.html">
+                                    <img src="Imagenes Pagina Web/productos/small/Krusty burguwr.png" alt="Set Restaurante" loading="lazy"
+                                        class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                                </a>
+                                <p class="mt-2">Set Restaurante</p>
+                                <p class="font-semibold text-primary">60€</p>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="product.html">
+                                    <img src="Imagenes Pagina Web/productos/small/WILLYWONKA.png" alt="Set Fábrica de Chocolate" loading="lazy"
+                                        class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                                </a>
+                                <p class="mt-2">Fábrica de Chocolate</p>
+                                <p class="font-semibold text-primary">150€</p>
+                            </div>
+                        </div>
+
+                        <!-- Botón siguiente -->
+                        <button id="carousel-next"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-primary/20 text-primary text-4xl font-bold hover:bg-primary hover:text-white transition ml-4"
+                            aria-label="Siguiente">❯</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Carrusel 2 -->
+            <section class="py-10 text-center w-full block">
+                <h2 class="text-xl font-semibold mb-6">Recomendados para ti</h2>
+
+                <div class="flex flex-col items-center w-full">
+                    <div class="flex items-center justify-center w-full max-w-6xl">
+                        <!-- Botón anterior -->
+                        <button id="carousel-prev-2"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-primary/20 text-primary text-4xl font-bold hover:bg-primary hover:text-white transition mr-4"
+                            aria-label="Anterior">❮</button>
+
+                        <div class="carousel w-full">
+                            <div class="carousel-item">
+                                <a href="product.html">
+                                    <img src="Imagenes Pagina Web/productos/small/starwars.png" alt="Set Star Wars" loading="lazy"
+                                        class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                                </a>
+                                <p class="mt-2">Set Star Wars</p>
+                                <p class="font-semibold text-primary">120€</p>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="product.html">
+                                    <img src="Imagenes Pagina Web/productos/small/WILLYWONKA.png" alt="Set Willy Wonka" loading="lazy"
+                                        class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                                </a>
+                                <p class="mt-2">Set Willy Wonka</p>
+                                <p class="font-semibold text-primary">150€</p>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="product.html">
+                                    <img src="Imagenes Pagina Web/productos/small/Krusty burguwr.png" alt="Set Krusty Burguer" loading="lazy"
+                                        class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                                </a>
+                                <p class="mt-2">Krusty Burguer</p>
+                                <p class="font-semibold text-primary">45€</p>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="product.html">
+                                    <img src="Imagenes Pagina Web/productos/small/WILLYWONKA.png" alt="Set Fábrica de Chocolate" loading="lazy"
+                                        class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                                </a>
+                                <p class="mt-2">Fábrica de Chocolate</p>
+                                <p class="font-semibold text-primary">150€</p>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="product.html">
+                                    <img src="Imagenes Pagina Web/productos/small/starwars.png" alt="Set Espacial" loading="lazy"
+                                        class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                                </a>
+                                <p class="mt-2">Set Espacial</p>
+                                <p class="font-semibold text-primary">99€</p>
+                            </div>
+                        </div>
+
+                        <!-- Botón siguiente -->
+                        <button id="carousel-next-2"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-primary/20 text-primary text-4xl font-bold hover:bg-primary hover:text-white transition ml-4"
+                            aria-label="Siguiente">❯</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Carrusel 3 -->
+            <section class="py-10 text-center w-full block">
+                <h2 class="text-xl font-semibold mb-6">Novedades recientes</h2>
+
+                <div class="flex flex-col items-center w-full">
+                    <div class="flex items-center justify-center w-full max-w-6xl">
+                        <!-- Botón anterior -->
+                        <button id="carousel-prev-3"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-primary/20 text-primary text-4xl font-bold hover:bg-primary hover:text-white transition mr-4"
+                            aria-label="Anterior">❮</button>
+
+                        <div class="carousel w-full">
+                            <div class="carousel-item">
+                                <a href="product.html">
+                                    <img src="Imagenes Pagina Web/productos/small/WILLYWONKA.png" alt="Set Willy Wonka" loading="lazy"
+                                        class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                                </a>
+                                <p class="mt-2">Set Willy Wonka</p>
+                                <p class="font-semibold text-primary">150€</p>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="product.html">
+                                    <img src="Imagenes Pagina Web/productos/small/starwars.png" alt="Set Star Wars" loading="lazy"
+                                        class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                                </a>
+                                <p class="mt-2">Set Star Wars</p>
+                                <p class="font-semibold text-primary">120€</p>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="product.html">
+                                    <img src="Imagenes Pagina Web/productos/small/going merry.png" alt="Set Krusty Burguer" loading="lazy"
+                                        class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                                </a>
+                                <p class="mt-2">Krusty Burguer</p>
+                                <p class="font-semibold text-primary">45€</p>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="product.html">
+                                    <img src="Imagenes Pagina Web/productos/small/WILLYWONKA.png" alt="Set Fábrica de Chocolate" loading="lazy"
+                                        class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                                </a>
+                                <p class="mt-2">Fábrica de Chocolate</p>
+                                <p class="font-semibold text-primary">150€</p>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="product.html">
+                                    <img src="Imagenes Pagina Web/productos/small/starwars.png" alt="Set Espacial" loading="lazy"
+                                        class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                                </a>
+                                <p class="mt-2">Set Espacial</p>
+                                <p class="font-semibold text-primary">99€</p>
+                            </div>
+                        </div>
+
+                        <!-- Botón siguiente -->
+                        <button id="carousel-next-3"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-primary/20 text-primary text-4xl font-bold hover:bg-primary hover:text-white transition ml-4"
+                            aria-label="Siguiente">❯</button>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-primary text-white px-6 py-10 mt-auto">
+        <div class="max-w-7xl mx-auto text-sm">
+            <!-- ====== VISTA ESCRITORIO ====== -->
+            <div class="hidden md:flex flex-col md:flex-row items-start md:space-x-6 mb-8">
+                <div class="flex flex-col items-start space-y-2 mb-6 md:mb-0">
+                    <img src="Imagenes Pagina Web/LOGO-sin fondo250px.png" alt="logotipo" class="object-contain" loading="lazy">
+                    <div class="flex items-center space-x-2">
+                        <img src="Imagenes Pagina Web/puntero.png" alt="Ubicación" class="w-4 h-4" loading="lazy">
+                        <span class="font-semibold">Contáctanos</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+                    <div>
+                        <h3 class="font-bold mb-2 text-secondary">Quiénes Somos</h3>
+                        <p>En Block Architect creemos en el poder de la imaginación y el diseño. Nuestra misión es
+                            inspirar a niños,
+                            jóvenes y adultos a construir sus propias ideas a través de bloques creativos y sets de
+                            calidad.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2 text-secondary">Atención al Cliente</h3>
+                        <p>En Block Architect nos importa tu experiencia. Puedes escribirnos a
+                            soporte@blockarchitect.com o llamarnos
+                            al +34 600 123 456.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2 text-secondary">Más información</h3>
+                        <ul class="space-y-1">
+                            <li><a href="#" class="hover:underline">Lo más Construido</a></li>
+                            <li><a href="#" class="hover:underline">Novedades</a></li>
+                            <li><a href="search.html" class="hover:underline">Descubrir</a></li>
+                            <li><a href="info.html" class="hover:underline">Sobre nosotros</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- ====== VISTA MÓVIL (DESPLEGABLE CON JS) ====== -->
+            <div class="md:hidden flex flex-col space-y-3">
+                <!-- Logo y Contáctanos SOLO EN MÓVIL -->
+                <div class="flex flex-col items-start space-y-2 mb-2">
+                    <img src="Imagenes Pagina Web/LOGO-sin fondo250px.png" alt="logotipo" class="object-contain w-40" loading="lazy">
+                    <div class="flex items-center space-x-2">
+                        <img src="Imagenes Pagina Web/puntero.png" alt="Ubicación" class="w-4 h-4" loading="lazy">
+                        <span class="font-semibold">Contáctanos</span>
+                    </div>
+                </div>
+                <div class="footer-item bg-primary/90 rounded-lg p-3">
+                    <button
+                        class="footer-toggle w-full flex justify-between items-center font-semibold text-secondary text-left">
+                        <span>Quiénes Somos</span>
+                        <span class="arrow transition-transform duration-300">▼</span>
+                    </button>
+                    <div
+                        class="footer-content overflow-hidden max-h-0 transition-all duration-500 text-sm text-white/90">
+                        <p class="pt-2">
+                            En Block Architect creemos en el poder de la imaginación y el diseño. Nuestra misión es
+                            inspirar a niños,
+                            jóvenes y adultos a construir sus propias ideas a través de bloques creativos y sets de
+                            calidad.
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-item bg-primary/90 rounded-lg p-3">
+                    <button
+                        class="footer-toggle w-full flex justify-between items-center font-semibold text-secondary text-left">
+                        <span>Atención al Cliente</span>
+                        <span class="arrow transition-transform duration-300">▼</span>
+                    </button>
+                    <div
+                        class="footer-content overflow-hidden max-h-0 transition-all duration-500 text-sm text-white/90">
+                        <p class="pt-2">
+                            En Block Architect nos importa tu experiencia. Puedes escribirnos a
+                            <strong>soporte@blockarchitect.com</strong> o llamarnos al +34 600 123 456.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="footer-item bg-primary/90 rounded-lg p-3">
+                    <button
+                        class="footer-toggle w-full flex justify-between items-center font-semibold text-secondary text-left">
+                        <span>Más información</span>
+                        <span class="arrow transition-transform duration-300">▼</span>
+                    </button>
+                    <div
+                        class="footer-content overflow-hidden max-h-0 transition-all duration-500 text-sm text-white/90">
+                        <ul class="pt-2 space-y-1">
+                            <li><a href="#" class="hover:underline">Lo más Construido</a></li>
+                            <li><a href="#" class="hover:underline">Novedades</a></li>
+                            <li><a href="search.html" class="hover:underline">Descubrir</a></li>
+                            <li><a href="info.html" class="hover:underline">Sobre nosotros</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- COPYRIGHT -->
+            <div
+                class="flex justify-between items-center border-t border-white/30 pt-4 text-xs opacity-80 flex-wrap mt-8">
+                <p class="text-left w-full md:w-auto mb-3 md:mb-0">
+                    © 2025 Block Architect. Todos los derechos reservados.
+                </p>
+                <div class="flex space-x-4 justify-end w-full md:w-auto">
+                    <img src="Imagenes Pagina Web/twitter-5568801232678d2d..svg" alt="Twitter"
+                        class="w-5 h-5 hover:opacity-80" loading="lazy">
+                    <img src="Imagenes Pagina Web/facebook-272324dea27d9f89..svg" alt="Facebook"
+                        class="w-5 h-5 hover:opacity-80" loading="lazy">
+                    <img src="Imagenes Pagina Web/instagram-5a9620c7f4368988..svg" alt="Instagram"
+                        class="w-5 h-5 hover:opacity-80" loading="lazy">
+                    <img src="Imagenes Pagina Web/youtube-15755d90b590e150..svg" alt="YouTube"
+                        class="w-5 h-5 hover:opacity-80" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/menu.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/free-interactions.js"></script>
+</body>
+
+</html>
